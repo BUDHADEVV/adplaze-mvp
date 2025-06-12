@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { dummyAdSpaces } from '../assets/AdSpaces';
 
 const PLACES = [
-  { id: 'Kochi', name: 'Kochi' },
+  //{ id: 'Kochi', name: 'Kochi' },
   { id: 'Kozhikode', name: 'Kozhikode' },
   { id: 'NIT Calicut', name: 'NIT Calicut' }
 ];
