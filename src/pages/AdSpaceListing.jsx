@@ -143,49 +143,50 @@ const AdSpaceListing = () => {
   );
 
   const AdSpaceCard = ({ space }) => (
-    <div className="bg-white rounded-2xl shadow p-8 flex flex-col md:flex-row gap-8">
-      <div
-        className="md:w-80 w-full h-64 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0 cursor-pointer"
-        onClick={() => navigate(`/ad-space/${space._id}`)}
-        title={space.name}
-      >
-        <img src={space.image[0]} alt={space.name} className="w-full h-full object-cover" />
-      </div>
-      <div className="flex-1 flex flex-col">
-        <div>
-          <div
-            className="text-2xl font-bold text-gray-900 mb-2 cursor-pointer hover:underline"
-            onClick={() => navigate(`/ad-space/${space._id}`)}
-            title={space.name}
-          >
-            {space.name}
-          </div>
-          <div className="flex items-center text-base text-gray-500 mb-1">
-            <svg className="w-5 h-5 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            {space.location?.landmark}
-          </div>
-          <div className="text-lg text-gray-600 mb-4">{space.description}</div>
+  <div className="bg-white rounded-xl shadow p-4 flex flex-col gap-3 h-full">
+    <div
+      className="w-full h-40 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0 cursor-pointer"
+      onClick={() => navigate(`/ad-space/${space._id}`)}
+      title={space.name}
+    >
+      <img src={space.image[0]} alt={space.name} className="w-full h-full object-cover" />
+    </div>
+    <div className="flex-1 flex flex-col">
+      <div>
+        <div
+          className="text-lg font-bold text-gray-900 mb-1 cursor-pointer hover:underline"
+          onClick={() => navigate(`/ad-space/${space._id}`)}
+          title={space.name}
+        >
+          {space.name}
         </div>
-        <div className="mt-auto flex items-center justify-between">
-          <div>
-            <span className="text-2xl font-bold text-green-600">₹{space.offerPrice || space.price}</span>
-            <span className="ml-2 text-gray-500 text-base">/day</span>
-          </div>
-          <div className="flex gap-3">
-            <button
-              className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold text-base hover:bg-green-700 transition"
-              onClick={() => navigate(`/ad-space/${space._id}`)}
-            >
-              Book Now
-            </button>
-          </div>
+        <div className="flex items-center text-sm text-gray-500 mb-1">
+          <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          {space.location?.landmark}
+        </div>
+        <div className="text-sm text-gray-600 mb-2">{space.description}</div>
+      </div>
+      <div className="mt-auto flex items-center justify-between">
+        <div>
+          <span className="text-lg font-bold text-green-600">₹{space.offerPrice || space.price}</span>
+          <span className="ml-1 text-gray-500 text-sm">/day</span>
+        </div>
+        <div className="flex gap-2">
+          <button
+            className="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold text-sm hover:bg-green-700 transition"
+            onClick={() => navigate(`/ad-space/${space._id}`)}
+          >
+            Book Now
+          </button>
         </div>
       </div>
     </div>
-  );
+  </div>
+);
+
 
   const FilterPanel = (
     <>
@@ -274,11 +275,12 @@ const AdSpaceListing = () => {
               No ad spaces found. Try changing your filters.
             </div>
           ) : (
-            <div className="flex flex-col gap-6">
-              {filteredSpaces.map(space => (
-                <AdSpaceCard key={space._id} space={space} />
-              ))}
-            </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {filteredSpaces.map(space => (
+                  <AdSpaceCard key={space._id} space={space} />
+                ))}
+              </div>
+
           )}
         </main>
       </div>
