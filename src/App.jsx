@@ -6,6 +6,9 @@ import Home from './pages/Home';
 import AdSpaceListing from './pages/AdSpaceListing';
 import AdSpacePage from './pages/AdSpacePage';
 import ScrollToTop from './components/ScrollToTop'; // Add this import
+import Bundle4Page from './pages/Bundle4';
+import Bundle2Page from './pages/Bundle2';
+import Bundle1Page from './pages/Bundle1';
 
 function App() {
   return (
@@ -19,6 +22,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ad-spaces" element={<AdSpaceListing />} />
             <Route path="/ad-space/:id" element={<AdSpacePage />} />
+            <Route path="/bundles/bundle3" element={<Bundle4Page />} />
+            <Route path="/bundles/bundle2" element={<Bundle2Page />} />
+            <Route path="/bundles/bundle1" element={<Bundle1Page />} />
+
           </Routes>
         </main>
         
